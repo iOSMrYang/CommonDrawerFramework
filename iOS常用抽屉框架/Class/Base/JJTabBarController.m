@@ -16,7 +16,7 @@
 #import "MineVC.h"
 #import "JJTabBar.h"
 #import "PostVC.h"
-@interface JJTabBarController()<JJTabBarDelegate>
+@interface JJTabBarController()<JJTabBarDelegate,UITabBarDelegate>
 
 @end
 @implementation JJTabBarController
@@ -44,10 +44,11 @@
     //创建自己的tabbar，然后用kvc将自己的tabbar和系统的tabBar替换下
     JJTabBar *tabbar = [[JJTabBar alloc] init];
     tabbar.myDelegate = self;
+    tabbar.delegate = self;
     //kvc实质是修改了系统的_tabBar
     [self setValue:tabbar forKeyPath:@"tabBar"];
     [self setUpAllChildVc];
-    self.selectedIndex = 1;
+//    self.selectedIndex = 1;
 }
 
 #pragma mark - ------------------------------------------------------------------
@@ -136,4 +137,15 @@
 }
 
 
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+{
+    
+    NSUInteger tabIndex = [tabBar.items indexOfObject:item];
+    NSLog(@"---------%zd",tabIndex);
+    if (self.delegate && [self.delegate respondsToSelector:@selector(hideRedPoint:)]) {
+    
+        [self.delegate hideRedPoint:tabIndex];
+    }
+   
+}
 @end

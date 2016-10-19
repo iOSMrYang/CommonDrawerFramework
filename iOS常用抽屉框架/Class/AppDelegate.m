@@ -7,10 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "JJTabBarController.h"
 #import "LeftVC.h"
 #import "RightVC.h"
-@interface AppDelegate ()
+@interface AppDelegate ()<JJTabBarControllerDelegate>
 
 @end
 
@@ -22,13 +21,17 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
     //中间tabbarviewController
-    JJTabBarController *tabBarVc = [JJTabBarController new];
+    self.tabBarVc = [JJTabBarController new];
+    self.tabBarVc.delegate =self;
     // 将中间VC和左边VC加上导航控制器 中间部分也可以是UITabBarController 右边VC没有做处理
-    [tabBarVc.tabBar showBadgeOnItemIndex:2];
+    [self.tabBarVc.tabBar showBadgeOnItemIndex:0];
+     [self.tabBarVc.tabBar showBadgeOnItemIndex:1];
+     [self.tabBarVc.tabBar showBadgeOnItemIndex:3];
+    [self.tabBarVc.tabBar showBadgeOnItemIndex:4];
     UINavigationController *leftNav = [[UINavigationController alloc] initWithRootViewController:[LeftVC new]];
     RightVC *rightVC = [RightVC new];
     
-    self.drawerController = [[MMDrawerController alloc] initWithCenterViewController:tabBarVc leftDrawerViewController:leftNav rightDrawerViewController:rightVC];
+    self.drawerController = [[MMDrawerController alloc] initWithCenterViewController:self.tabBarVc leftDrawerViewController:leftNav rightDrawerViewController:rightVC];
     [self.drawerController setShowsShadow:YES]; // 是否显示阴影效果
     self.drawerController.maximumLeftDrawerWidth = SCREEN_WIDTH*3/4; // 左边拉开的最大宽度
     self.drawerController.maximumRightDrawerWidth = SCREEN_WIDTH*3/4; // 右边拉开的最大宽度
@@ -59,6 +62,14 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+
+#pragma mark ------JJTabBarControllerDelegate
+- (void)hideRedPoint:(NSInteger)index
+{
+    [self.tabBarVc.tabBar hideBadgeOnItemIndex:index>1?index+1:index];
 }
 
 @end

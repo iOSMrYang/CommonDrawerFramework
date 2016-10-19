@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "JJTabBarController.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) MMDrawerController *drawerController;
-
+@property (nonatomic , strong) JJTabBarController *tabBarVc;
 @end

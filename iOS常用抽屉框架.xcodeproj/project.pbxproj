@@ -646,6 +646,7 @@
 				TargetAttributes = {
 					AE0E1B071D50941500B71FEB = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 7ZFH64R7CV;
 					};
 					AE0E1B201D50941500B71FEB = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -874,7 +875,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				GCC_PREFIX_HEADER = "/Users/yangjie/Desktop/iOS常用抽屉框架/iOS常用抽屉框架/Pch.pch";
+				DEVELOPMENT_TEAM = 7ZFH64R7CV;
+				GCC_PREFIX_HEADER = "/Users/jie.y.mac/CommonDrawerFramework/iOS常用抽屉框架/Pch.pch";
 				HEADER_SEARCH_PATHS = "$(SRCROT)/iOS常用抽屉框架/Untils";
 				INFOPLIST_FILE = "iOS常用抽屉框架/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -889,7 +891,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				GCC_PREFIX_HEADER = "/Users/yangjie/Desktop/iOS常用抽屉框架/iOS常用抽屉框架/Pch.pch";
+				DEVELOPMENT_TEAM = 7ZFH64R7CV;
+				GCC_PREFIX_HEADER = "/Users/jie.y.mac/CommonDrawerFramework/iOS常用抽屉框架/Pch.pch";
 				HEADER_SEARCH_PATHS = "$(SRCROT)/iOS常用抽屉框架/Untils";
 				INFOPLIST_FILE = "iOS常用抽屉框架/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;

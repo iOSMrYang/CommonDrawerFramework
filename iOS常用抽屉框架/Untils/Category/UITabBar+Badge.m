@@ -7,7 +7,7 @@
 //
 
 #import "UITabBar+Badge.h"
-#define TabbarItemNums 4.0    //tabbar的数量 如果是5个设置为5.0
+#define TabbarItemNums 5.0    //tabbar的数量 如果是5个设置为5.0
 @implementation UITabBar (Badge)
 
 //显示小红点
@@ -21,10 +21,10 @@
     badgeView.layer.cornerRadius = 5;//圆形
     badgeView.backgroundColor = [UIColor redColor];//颜色：红色
     CGRect tabFrame = self.frame;
-    
+    NSLog(@"%f",self.width);
     //确定小红点的位置
     float percentX = (index +1) / TabbarItemNums;
-    CGFloat x = ceilf(percentX * tabFrame.size.width);
+    CGFloat x = ceilf(self.width/5*(index+1)-15);
     CGFloat y = ceilf(0.1 * tabFrame.size.height);
     badgeView.frame = CGRectMake(x, y, 10, 10);//圆形大小为10
     [self addSubview:badgeView];

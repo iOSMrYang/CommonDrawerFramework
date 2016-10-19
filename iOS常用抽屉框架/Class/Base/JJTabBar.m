@@ -13,6 +13,7 @@
 
 /** plus按钮 */
 @property (nonatomic, weak) UIButton *plusBtn ;
+@property (nonatomic, weak) UILabel *plusBtnTitle ;
 @end
 @implementation JJTabBar
 
@@ -32,6 +33,16 @@
         [plusBtn addTarget:self action:@selector(plusBtnDidClick) forControlEvents:UIControlEventTouchUpInside];
         
         [self addSubview:plusBtn];
+        
+        
+        UILabel *label = [[UILabel alloc] init];
+        label.text = @"发布";
+        label.font = [UIFont systemFontOfSize:11];
+        [label sizeToFit];
+        label.textColor = [UIColor grayColor];
+        [self addSubview:label];
+        self.plusBtnTitle = label;
+        [self layoutIfNeeded];
     }
     return self;
 }
@@ -48,14 +59,9 @@
     self.plusBtn.size = CGSizeMake(self.plusBtn.currentBackgroundImage.size.width, self.plusBtn.currentBackgroundImage.size.height);
     
     
-    UILabel *label = [[UILabel alloc] init];
-    label.text = @"发布";
-    label.font = [UIFont systemFontOfSize:11];
-    [label sizeToFit];
-    label.textColor = [UIColor grayColor];
-    [self addSubview:label];
-    label.centerX = self.plusBtn.centerX;
-    label.centerY = CGRectGetMaxY(self.plusBtn.frame) + LBMagin ;
+    
+    self.plusBtnTitle.centerX = self.plusBtn.centerX;
+    self.plusBtnTitle.centerY = CGRectGetMaxY(self.plusBtn.frame) + LBMagin ;
     
     
     

@@ -9,6 +9,12 @@
 */
 #import <UIKit/UIKit.h>
 
-@interface JJTabBarController : UITabBarController
+@protocol JJTabBarControllerDelegate <NSObject>
 
+- (void)hideRedPoint:(NSInteger)index;
+
+@end
+
+@interface JJTabBarController : UITabBarController
+@property (nonatomic , weak) id <JJTabBarControllerDelegate>delegate;
 @end
